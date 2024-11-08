@@ -1,0 +1,86 @@
+c = create => post
+r =read => get
+u = update =>patch
+d= delete => delete
+
+
+frontend request backend
+  how to requesturl: localhost:8000
+  mehod: post|get|patch|delete 
+
+  making api means
+    define response for particular request
+
+To make api 
+  we have to follow two steps
+  1.make router
+  2.use that router to index.js(main app)
+
+For one request we must have only one response
+
+url = localhost:8000/a/b/c?name=nitan&age=30&isMarried=false
+    url = rote?query
+    route = baseURL/routeParam1/routeParam2/...
+    query = name=nitan&age=30&isMarried=false
+
+    Everything in Url are string
+
+    How can you send data from postman or browser
+      3way
+        body
+        params
+        query
+
+Middleware 
+    based on parameter
+        normal middleware
+            (req,res,next)=>{}
+            to call normal middleware use next()
+        error middleware 
+            (err,req,res,next)=>{}
+            to call error middleware use next(error)  here error is  error data
+
+    based on location 
+        route middleware
+            which is define route
+        application middleware
+            defined in main application (defined in index.js)
+    when api is hit 
+        it execute middleware form application then goes to route
+
+Error 
+    can not find package mongoose    (it means do npm i mongoose)
+
+
+    mongoose is not defined    ( it means import mongoose)
+
+    cannot find module     (means add .js in import)
+
+    cast to ObjectId failed (it means id is not valid)
+
+expressAsyncHandler
+    it is a wrapper
+    it must always wraps async function
+    if any error occur in async function it calls error middleware
+
+Status Code
+    success
+        in general = 200
+        post,patch = 201 (data is save in db)
+        get, delete = 200
+    failure
+        in general = 400
+        not found = 404
+
+CRUD
+    create
+        schema design
+        validation
+            schema validation
+            joi validation
+
+schema
+    model
+        controller
+            route
+                add route to index.js
